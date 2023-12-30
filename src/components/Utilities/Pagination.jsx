@@ -1,4 +1,4 @@
-const Pagination = ({page, lasPage, setPage}) => {
+const Pagination = ({page, lastPage, setPage}) => {
 
     const scrollTop = () => {
     window.scrollTo({
@@ -18,9 +18,13 @@ const Pagination = ({page, lasPage, setPage}) => {
     
     return (
         <div className="flex justify-center items-center py-4 px-2 gap-4 text-color-primary text-2xl">
-            <button onClick={handlePrevPage} className="transition-all hover:text-color-accent">Prev</button>
-            <p>{page} Of {lasPage}</p>
-            <button onClick={handleNextPage} className="transition-all hover:text-color-accent">Next</button>
+            {page <= 1 ?  null :
+                <button onClick={handlePrevPage} className="transition-all hover:text-color-accent">Prev</button>
+            }
+            <p>{page} Of {lastPage}</p>
+            {page >= {lastPage} ? null :
+                <button onClick={handleNextPage} className="transition-all hover:text-color-accent">Next</button>
+            }
         </div>
     )
 }
