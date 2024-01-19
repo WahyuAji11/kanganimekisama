@@ -1,6 +1,9 @@
-import Link from "next/link"
+"use client"
+import { useRouter } from "next/navigation"
 
 const Page = () => {
+    const router = useRouter()
+
     return (
         <div className="min-h-screen max-w-xl mx-auto flex justify-center items-center">
             <div className="flex-col justify-center items-center text-center">
@@ -10,7 +13,7 @@ const Page = () => {
                 <p className="text-color-primary text-1xl font-bold">「我慢しろよ、俺一人でソロやってんだ」<br></br>(Gaman shiro yo, ore hitori de soro yattendā)</p>
                 <p className="text-color-primary text-1xl font-bold">(-̩̩̩-̩̩̩-̩̩̩-̩̩̩-̩̩̩___-̩̩̩-̩̩---)</p>
                 <br></br> <br></br>
-                <Link href="/" className="text-color-primary text-1xl font-bold hover:text-color-accent transition-all underline">Kembali ke halaman utama / ホームページに戻る</Link>
+                <button onClick={() => router.back()} className="text-color-primary text-1xl font-bold hover:text-color-accent transition-all underline">Kembali ke halaman utama / ホームページに戻る</button>
             </div>
         </div>
     )
